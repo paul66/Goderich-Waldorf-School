@@ -1,0 +1,59 @@
+Upgrading to 3.5.0
+
+
+New from 3.2.7
+
+1) Made file upload field names available in mail merge template
+2) Added controls.php switcher
+3) Added config file for antispam token session code
+4) Make it possible to require files
+
+New files:
+
+tokenCofig.php - doesn't really come into play unless you turn on
+$set['spamBlock'] = '0'; by changing to '1'
+
+For more info on this, see my knowledge base at
+http://www.jackborn.com/support/ 
+Look under video tutorials for info on Spam Block setup.
+
+The spam block is an optional convenience that is very handy, but
+not required for Ultimate Form Mail to be safe.
+
+Basically, it does the job of a CAPTCHA (ransom note) without images
+or user input required. Google the word CAPTCHA for more info.
+
+
+Changes to controls.php
+
+1) optional token settings moved to tokenConfig.php
+2) $set['required_filefields'] = array('file1','file2');  sets an array of required file upload field names.
+Off by default. Remove leading // to turn on. Under category - Upload attachments in controls.php
+
+
+Big change
+
+[Optional - Not required - Just a new feature]
+
+controls.php switcher
+This is new code that makes it much easier to have multiple forms on one website
+with just one install of Ultimate Form Mail. Here's how it works.
+
+1) The default config file is controls.php
+2) You can set up multiple controls.php files with the following naming conventions
+controls-x.php
+controlsx.php
+Where x is any NUMBER
+3) You can start out of order (controls103.php)
+4) You tell Ultimate Form Mail which config file to grab like so:
+<form action="/ufm/mailit.php?cid=54" method="post" (etc...)
+In this case, controls-54.php or controls54.php will be sought.
+5) If the file you specify is not found, then it reverts back to controls.php (default)
+6) It's strongly recommended to have a default config file named controls.php
+
+More info on this is in the knowledge base at
+
+http://www.jackborn.com/support/
+
+
+Enjoy!

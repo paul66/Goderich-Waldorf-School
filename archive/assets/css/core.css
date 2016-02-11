@@ -1,0 +1,5 @@
+@charset "utf-8";
+/* Core CSS Stylesheet */
+
+@import url(reset.css);
+@import url(gws.css);
